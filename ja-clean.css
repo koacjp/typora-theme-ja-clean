@@ -1,0 +1,303 @@
+/*
+ * Theme Name: Ja-Clean
+ * Based on: crisp-gothic.css
+ * Description: Optimized for Japanese readability with clean typography and tight spacing.
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@font-face {
+    font-family: "CodeJapaneseScale";
+    src: local("Noto Sans JP"), local("Yu Gothic Medium"), local("Meiryo"), local("Hiragino Sans");
+    size-adjust: 95%;
+    unicode-range: U+3000-9FFF, U+FF00-FFEF;
+}
+
+/* Variables */
+:root {
+    --clean-bg: #ffffff;
+    --clean-text: #2a2a2a;
+    --clean-heading: #2a2a2a;
+    --clean-muted: #6b7280;
+    --clean-border: rgba(8, 19, 26, 0.22);
+    --clean-soft: #f6f7f8;
+    --clean-code-bg: rgba(0, 0, 0, 0);
+    --clean-code-text: #111827;
+    --clean-link: #0066cc;
+    --clean-quote-border: #d1d5db;
+    --clean-quote-text: #3a4450;
+    --clean-quote-bg: rgb(245, 248, 250);
+    --clean-quote-font-size: 0.95em;
+    --clean-table-header-bg: #fafafa;
+    --clean-selection: #e8f0fe;
+
+    /* Typora variables */
+    --bg-color: var(--clean-bg);
+    --text-color: var(--clean-text);
+    --md-char-color: var(--clean-muted);
+    --meta-content-color: var(--clean-muted);
+    --monospace: "Source Code Pro", "CodeJapaneseScale", SFMono-Regular, Consolas, Menlo, Courier, monospace;
+}
+
+/* Base */
+html {
+    font-size: 13.8px;
+}
+
+body {
+    background: var(--clean-bg);
+    color: var(--clean-text);
+    font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック", Meiryo, sans-serif;
+    font-size: 13.8px;
+    font-weight: 400;
+    line-height: 1.62em;
+    letter-spacing: -0.02em;
+    word-break: break-word;
+    -webkit-font-feature-settings: "pkna";
+    font-feature-settings: "pkna";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+    background: var(--clean-selection);
+}
+
+#write {
+    max-width: calc(760px + 30px * 2);
+    margin: 0 auto;
+    padding: 28px 30px 56px;
+}
+
+/* Paragraph */
+p {
+    margin: 1em 0;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--clean-heading);
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+h1 + h2, h2 + h3, h3 + h4, h4 + h5, h5 + h6 {
+    margin-top: 0.5em;
+}
+
+h1 {
+    font-size: 1.778rem; /* 32px */
+    margin-top: 0;
+    margin-bottom: 0.35em;
+}
+
+h2 {
+    font-size: 1.556rem; /* 28px */
+}
+
+h3 {
+    font-size: 1.25rem; /* 22.5px */
+}
+
+h4,
+h5,
+h6 {
+    font-size: 1.05rem; /* 18.9px */
+}
+
+/* Links */
+a {
+    color: var(--clean-link);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    letter-spacing: 0;
+}
+
+a:hover {
+    opacity: 0.75;
+}
+
+/* Inline */
+strong {
+    font-weight: 600;
+}
+
+em {
+    font-style: italic;
+}
+
+/* Divider */
+hr {
+    border: 0;
+    border-top: 1px solid var(--clean-border);
+    margin: 2em 0;
+}
+
+/* Blockquote */
+blockquote {
+    margin: 1em 0;
+    padding: 10px 18px;
+    color: var(--clean-quote-text);
+    background: var(--clean-quote-bg);
+    border-radius: 4px;
+    font-size: var(--clean-quote-font-size);
+    line-height: 1.5;
+}
+
+blockquote p {
+    margin: 0;
+}
+
+/* Lists */
+ul,
+ol {
+    padding-left: 1.6em;
+    margin: 1em 0;
+}
+
+li ul,
+li ol {
+    margin: 0;
+}
+
+li {
+    margin: 0.15em 0;
+}
+
+/* Task list */
+.md-task-list-item,
+.task-list-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding-left: 0;
+}
+
+.md-task-list-item > input,
+.task-list-item > input {
+    flex-shrink: 0;
+    position: relative;
+    top: 2px;
+    margin: 0;
+}
+
+.md-task-list-item > p,
+.task-list-item > p {
+    margin: 0;
+}
+
+/* Code */
+tt,
+code {
+    background: var(--clean-code-bg);
+    color: var(--clean-code-text);
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-family: var(--monospace);
+    background: #f1f3f5;
+    color: #495057;
+}
+
+pre,
+pre.md-fences {
+    background: var(--clean-soft);
+    border: 1px solid var(--clean-border);
+    border-radius: 8px;
+    padding: 1em 1.1em;
+    overflow-x: auto;
+    line-height: 1.4;
+}
+
+pre code {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    font-size: 0.9em;
+    font-family: var(--monospace);
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.4em 0;
+    font-size: 0.96em;
+}
+
+th,
+td {
+    border: 1px solid var(--clean-border);
+    padding: 0.4em 0.6em;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: var(--clean-table-header-bg);
+    font-weight: 700;
+}
+
+/* Image */
+img {
+    display: block;
+    max-width: 100%;
+    margin: 1.6em auto;
+    border-radius: 6px;
+}
+
+/* Print */
+@media print {
+    .typora-export * {
+        -webkit-print-color-adjust: exact;
+    }
+
+    html {
+        font-size: 13px;
+    }
+
+    pre,
+    pre.md-fences {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+/* Sidebar */
+#typora-sidebar,
+.sidebar-tabs,
+.file-node-title,
+.file-list-item-summary {
+    font-size: 12px !important;
+}
+
+/* サイドバーの行間（アイテムの高さ）を詰める */
+.file-node-background {
+    height: 20px !important;
+}
+.file-node-content {
+    line-height: 20px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+.file-node-icon {
+    line-height: 20px !important;
+}
+
+#file-library .file-node-icon,
+#file-library .fa-folder,
+#file-library .fa-file-text-o,
+#file-library .fa-caret-right,
+#file-library .fa-caret-down,
+#file-library svg,
+.sidebar-tabs .fa {
+    color: #555555 !important;
+    fill: #555555 !important;
+}
